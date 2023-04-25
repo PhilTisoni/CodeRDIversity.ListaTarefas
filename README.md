@@ -5,7 +5,7 @@
 Exercício realizado durante a **CodeRDIversity** para o desenvolvimento de uma lista de tarefas.
 
 ## Sobre o Projeto
-Realizado em Abril de 2023 durante o **CodeRDIversity** organizado pela **Prosper Tech Talents** em parceria com a **RDI Software** para o **treinamento** de **PCD's** na **linguagem C#**. O projeto foi proposto como exercício prático do curso, sendo orientado por **Rodrigo Grigoleto**, tendo como objetivo o desenvolvimento de uma API CRUD (Creat, Read, Update e Delete) de uma lista de tarefas.
+Realizado em Abril de 2023 durante o **CodeRDIversity** organizado pela **Prosper Tech Talents** em parceria com a **RDI Software** para o **treinamento** de **PCD's** na **linguagem C#**, o projeto foi proposto como exercício prático do curso, sendo orientado por **Rodrigo Grigoleto**, tendo como objetivo o desenvolvimento de uma API CRUD (Creat, Read, Update e Delete) de uma lista de tarefas.
 
 ## Tecnologias Utilizadas
 - Linguagem C# / ASP Net
@@ -28,7 +28,7 @@ Após clonar o projeto, abra o executável na pasta bin.
 - <a href = "#Criação-do-Banco-de-Dados">Criação do Banco de Dados</a>
 - <a href = "#Repositório">Repositório</a>
 - <a href = "#Controller">Controller</a>
-- <a href = "#Resultados">Resultados</a>- 
+- <a href = "#Resultados">Resultados</a> 
 - <a href = "#Autores">Autores</a>
 - <a href = "#Agradecimentos">Agradecimentos</a>
 
@@ -84,7 +84,7 @@ Posteriormente, foi realizada a conexão com o banco através da classe **AppDbC
     }
 ```
 
-Como requisitado na regra de negócio, foi criada uma classa Tarefa contendo os atributos citados utilizando DataAnnotation para a criação da tabela e das colunas no banco de dados:
+Como requisitado na regra de negócio, foi criada uma classa **Tarefa** contendo os atributos citados utilizando **DataAnnotation** para a criação da tabela e das colunas no banco de dados:
 
 ```c#
     [Table("Tarefa")]
@@ -102,7 +102,9 @@ Como requisitado na regra de negócio, foi criada uma classa Tarefa contendo os 
         public bool IsConcluido { get; set; }
     }
 ```
-A tabela e suas respectivas colunas, podem ser visualizadas no DBeaver, como a imagem abaixo:
+A tabela e suas respectivas colunas, podem ser visualizadas no **DBeaver**, como a imagem abaixo:
+
+<img style = "width: 300px" src="./assets/DBeaver - Tabela e Colunas.PNG" alt = "DBeaver - Tabela e Colunas">
 
 # Repositório
 
@@ -143,7 +145,7 @@ Para inserir o método de **ExcluirTarefa()**, foi adicionada uma validação at
 
 # Controller
 
-Para os métodos da Controller, foi criada uma **interface** na pasta Repository afim da utilização de injeção de dependências:
+Para os métodos da Controller, foi criada uma **interface** na pasta **Repository** afim da utilização de injeção de dependências:
 ```c#
    public class Program
     {
@@ -178,8 +180,7 @@ Essa técnica facilitou a escrita e entendimento do código, simplificando os co
         }
 ```
 
-Para os métodos Incluir e Atualizar tarefa, optou-se por utilizar a rota **FromQuery**, afim de simplificar o preenchimento dos dados no Swagger, porém, 
-também seria possível a utilização de outras rotas, como o **FromRoute** ou **FromBody**, sendo necessários alguns ajustes na inserção desses comandos:
+Para os métodos **Incluir** e **Atualizar** tarefa, optou-se por utilizar a rota **FromQuery** como forma de praticar o conteúdo estudado, porém, também seria possível a utilização de outras rotas, como por exemplo a **FromRoute** ou **FromBody**, sendo necessários alguns ajustes na inserção desses comandos:
 ```c#  
         [HttpPost("[action]/{tarefa}")]
         public Tarefa IncluirTarefa([FromQuery] Tarefa tarefa)
@@ -188,11 +189,36 @@ também seria possível a utilização de outras rotas, como o **FromRoute** ou 
         }
 ```
 
-
 # Resultados
 
-Utilizando o Swagger, podemos visualizar todos os comandos funcionando corretamente.
+Utilizando o Swagger, executamos o método InserirTarefa():
 
+<img style = "width: 400px" src="./assets/Swagger - Inserir Tarefa 1.PNG" alt = "Swagger - Inserir Tarefa">
+
+Nota-se o **Status Code** igual a 200, demonstrando que a requisição foi executada com sucesso. Pode-se verificar através da inserção dos dados no DBeaver:
+
+<img style = "width: 500px" src="./assets/DBeaver - Inserir Tarefa 1.PNG" alt = "DBeaver - Inserir Tarefa">
+
+Também obtivemos um resultado positivo ao executar o Postman, havendo a inserção da tarefa no banco de dados:
+
+<img style = "width: 600px" src="./assets/Postman - FromQuery.png" alt = "Postman - FromQuery">
+<img style = "width: 500px" src="./assets/Dbeaver - Inserir Tarefa com Postaman.PNG" alt = "Dbeaver - Inserir Tarefa com Postaman">
+
+Os métodos de consulta exibem todas as tarefas ou filtra entre as que foram concluídas e estão em aberto. Nas figuras abaixo, observa-se a lista de todas as tarefas sendo exibidas na primeira figura, apenas as que possuem **IsConcluida = true** na segunda figura, e apenas as tarefas com **IsConcluida = false** na terceira:
+
+<img style = "width: 400px" src="./assets/Swagger - Consultar Todas as Tarefas.PNG" alt = "Swagger - Consultar Todas as Tarefas">
+<img style = "width: 400px" src="./assets/Swagger - Consultar Tarefas Concluidas.PNG" alt = "Swagger - Consultar Tarefas Concluidas"> 
+<img style = "width: 400px" src="./assets/Swagger - Consultar Tarefas em Aberto.PNG" alt = "Swagger - Consultar Tarefas em Aberto">
+
+Também é possível atualizar os dados, nesse exemplo, modificamos a terceira tarefa (Verificar quando devo entregar o trabalho) para concluída (IsConcluida = true):
+
+<img style = "width: 400px" src="./assets/Swagger - Atualizar Tarefa.PNG" alt = "Swagger - Atualizar Tarefa">
+
+Para exlcuir uma tarefa é necessário inserir o ID no Swagger, no exemplo, deletamos a primeira e a terceira tarefa, logo, percebe-se apenas a tarefa com ID = 2 no banco de dados:
+
+<img style = "width: 500px" src="./assets/DBeaver - Excluir Tarefa.PNG" alt = "DBeaver - Excluir Tarefa">
+
+Deste modo, as funções de criação, leitura, atualização e remoção de dados foram implementadas na API.
 
 # Autores
 - [Andreia Ribas](https://www.linkedin.com/in/andreiaribas/ "Andreia Linkedin")
