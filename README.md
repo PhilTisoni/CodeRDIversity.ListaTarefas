@@ -2,7 +2,7 @@
 
 <img style = "width: 200px" src = "https://prosper.tech/wp-content/uploads/2023/02/stories_06-3-2-783x1024.png" alt = "CodeRDIversity"> <img style = "width: 150px" src = "https://media.licdn.com/dms/image/C4D0BAQESTAYGKhOdSQ/company-logo_200_200/0/1659620356007?e=2147483647&v=beta&t=9kHLR--f0dlKI6o6clQuGNllshlTOb96Mi51iU5idlg" alt = "Prosper Tech Talents"> <img style = "width: 200px" src = "https://www.rdisoftware.com/img/logo.png" alt = "RDI Softwares"> 
 
-Exercício realizado durante a CodeRDIversity para o desenvolvimento de uma lista de tarefas.
+Exercício realizado durante a **CodeRDIversity** para o desenvolvimento de uma lista de tarefas.
 
 ## Sobre o Projeto
 Realizado em Abril de 2023 durante o **CodeRDIversity** organizado pela **Prosper Tech Talents** em parceria com a **RDI Software** para o **treinamento** de **PCD's** na **linguagem C#**. O projeto foi proposto como exercício prático do curso, sendo orientado por **Rodrigo Grigoleto**, tendo como objetivo o desenvolvimento de uma API CRUD (Creat, Read, Update e Delete) de uma lista de tarefas.
@@ -18,7 +18,7 @@ Realizado em Abril de 2023 durante o **CodeRDIversity** organizado pela **Prospe
 ## Como executar o projeto
 ```bash
 # clonar repositório
-git clone https://github.com/PhilTisoni/CodeRDIversity--My_Book_Library.git
+git clone https://github.com/PhilTisoni/CodeRDIversity-API_Lista_Tarefas.git
 ```
 Após clonar o projeto, abra o executável na pasta bin.
 
@@ -102,6 +102,7 @@ Como requisitado na regra de negócio, foi criada uma classa Tarefa contendo os 
         public bool IsConcluido { get; set; }
     }
 ```
+A tabela e suas respectivas colunas, podem ser visualizadas no DBeaver, como a imagem abaixo:
 
 # Repositório
 
