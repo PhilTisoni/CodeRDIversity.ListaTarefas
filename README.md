@@ -68,7 +68,7 @@ Requisitos extras:
 
 Para a criação do banco de dados, foram instalados os pacotes:
 
-- **Microsoft.EntityFrameworkCore:** Instalaçõ do Entity Framework
+- **Microsoft.EntityFrameworkCore:** Instalação do Entity Framework
 - **Microsoft.EntityFrameworkCore.Design:** Utilização de Migrations
 - **Microsoft.EntityFrameworkCore.Sqlite:** Utilização do Sqlite
 
@@ -84,7 +84,7 @@ Posteriormente, foi realizada a conexão com o banco através da classe **AppDbC
     }
 ```
 
-Como requisitado na regra de negócio, foi criada uma classa **Tarefa** contendo os atributos citados utilizando **DataAnnotation** para a criação da tabela e das colunas no banco de dados:
+Como requisitado na regra de negócio, foi criada uma classa **Tarefa** contendo os atributos com a utilização de **DataAnnotations**:
 
 ```c#
     [Table("Tarefa")]
@@ -108,8 +108,8 @@ A tabela e suas respectivas colunas, podem ser visualizadas no **DBeaver**, como
 
 # Repositório
 
-Como forma de organização, foi criada uma pasta chamada **Repository** contendo uma classe com os métodos utilizados no CRUD através de injeção
-de dependências. Abaixo, está exemplificado o método **ConsultarTodasTarefas()** que retorna uma lista com todas as tarefas cadastradas no banco:
+Como forma de organização, foi criada uma pasta chamada **Repository** contendo uma classe com os métodos utilizados no CRUD, ela utiliza injeção
+de dependências para evitar instâncias desnecessárias no código. Abaixo, está exemplificado o método **ConsultarTodasTarefas()** que retorna uma lista com todas as tarefas cadastradas no banco:
 
 ```c#
         private readonly AppDbContext _context;
@@ -145,7 +145,7 @@ Para inserir o método de **ExcluirTarefa()**, foi adicionada uma validação at
 
 # Controller
 
-Para os métodos da Controller, foi criada uma **interface** na pasta **Repository** afim da utilização de injeção de dependências:
+Para os métodos da Controller, foi criada uma **interface** na pasta **Repository** para utilização de injeção de dependências:
 ```c#
    public class Program
     {
@@ -160,7 +160,7 @@ Para os métodos da Controller, foi criada uma **interface** na pasta **Reposito
             builder.Services.AddTransient<ITarefaRepository, TarefaRepository>(); // Adicionando comando para injeção de dependências
 ```
 
-Essa técnica facilitou a escrita e entendimento do código, simplificando os comandos para a Controller:
+Essa técnica facilitou a escrita e entendimento do código, simplificando os comandos na **Controller**:
 
 ```c#
     [Route("[controller]")]
@@ -195,30 +195,30 @@ Utilizando o Swagger, executamos o método InserirTarefa():
 
 <img style = "width: 400px" src="./assets/Swagger - Inserir Tarefa 1.PNG" alt = "Swagger - Inserir Tarefa">
 
-Nota-se o **Status Code** igual a 200, demonstrando que a requisição foi executada com sucesso. Pode-se verificar através da inserção dos dados no DBeaver:
+Nota-se o **Status Code** igual a 200, demonstrando que a requisição foi executada com **sucesso**. Pode-se verificar através do DBeaver:
 
 <img style = "width: 500px" src="./assets/DBeaver - Inserir Tarefa 1.PNG" alt = "DBeaver - Inserir Tarefa">
 
-Também obtivemos um resultado positivo ao executar o Postman, havendo a inserção da tarefa no banco de dados:
+Também obtivemos um resultado positivo ao inserir dados através do **Postman**:
 
 <img style = "width: 600px" src="./assets/Postman - FromQuery.png" alt = "Postman - FromQuery">
 <img style = "width: 500px" src="./assets/Dbeaver - Inserir Tarefa com Postaman.PNG" alt = "Dbeaver - Inserir Tarefa com Postaman">
 
-Os métodos de consulta exibem todas as tarefas ou filtra entre as que foram concluídas e estão em aberto. Nas figuras abaixo, observa-se a lista de todas as tarefas sendo exibidas na primeira figura, apenas as que possuem **IsConcluida = true** na segunda figura, e apenas as tarefas com **IsConcluida = false** na terceira:
+Os métodos de consulta exibem a **lista de todas as tarefas** (como observado na primeira figura), apenas as **tarefas concluídas**, ou seja, as que possuem **IsConcluida = true** (segunda figura), e apenas as **tarefas em aberto**, nesse caso, com **IsConcluida = false** (terceira figura):
 
 <img style = "width: 400px" src="./assets/Swagger - Consultar Todas as Tarefas.PNG" alt = "Swagger - Consultar Todas as Tarefas">
 <img style = "width: 400px" src="./assets/Swagger - Consultar Tarefas Concluidas.PNG" alt = "Swagger - Consultar Tarefas Concluidas"> 
 <img style = "width: 400px" src="./assets/Swagger - Consultar Tarefas em Aberto.PNG" alt = "Swagger - Consultar Tarefas em Aberto">
 
-Também é possível atualizar os dados, nesse exemplo, modificamos a terceira tarefa (Verificar quando devo entregar o trabalho) para concluída (IsConcluida = true):
+Ao **atualizar os dados**, pode-se alterar qualquer atributo de uma tarefa já cadastrada. No exemplo abaixo, modificamos a **terceira tarefa** (Verificar quando devo entregar o trabalho) para **concluída** (IsConcluida = true):
 
 <img style = "width: 400px" src="./assets/Swagger - Atualizar Tarefa.PNG" alt = "Swagger - Atualizar Tarefa">
 
-Para exlcuir uma tarefa é necessário inserir o ID no Swagger, no exemplo, deletamos a primeira e a terceira tarefa, logo, percebe-se apenas a tarefa com ID = 2 no banco de dados:
+Para **exlcuir uma tarefa** é necessário inserir o ID no **Swagger**, deste modo, deletamos a primeira e a terceira tarefa. Na imagem abaixo, nota-se que apenas a tarefa com **Id = 2** está presente no banco de dados:
 
 <img style = "width: 500px" src="./assets/DBeaver - Excluir Tarefa.PNG" alt = "DBeaver - Excluir Tarefa">
 
-Deste modo, as funções de criação, leitura, atualização e remoção de dados foram implementadas na API.
+Assim, as funções de criação, leitura, atualização e remoção de dados foram implementadas na API.
 
 # Autores
 - [Andreia Ribas](https://www.linkedin.com/in/andreiaribas/ "Andreia Linkedin")
