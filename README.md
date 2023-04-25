@@ -223,7 +223,7 @@ Assim, as funções de criação, leitura, atualização e remoção de dados fo
 # Autores
 - [Andreia Ribas](https://www.linkedin.com/in/andreiaribas/ "Andreia Linkedin")
 - [Carolina Aizawa Moreira](https://www.linkedin.com/in/carolina-aizawa-moreira-pcd-9b0624179/ "Carolina Linkedin")
-- Gabriel Vicente
+- Gabriel Vicente(https://www.linkedin.com/in/gabriel-freitas-3a418b15b/ "Gabriel Linkedin")
 - [Neto Trindade](https://www.linkedin.com/in/neto-trindade-09410287/ "Neto Linkedin")
 - [Phelipe Augusto Tisoni](https://www.linkedin.com/in/phelipetisoni "Phelipe Linkedin")
 
