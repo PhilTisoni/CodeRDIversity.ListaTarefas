@@ -15,12 +15,17 @@ Realizado em Abril de 2023 durante o **CodeRDIversity** organizado pela **Prospe
 - DBeaver
 - Swagger / Postman
 
-## Como executar o projeto
+# Como Clonar o Projeto
+
+- Instale o [Git](https://git-scm.com/downloads) no seu computador. Durante a instalação, certifique-se se a opção **Git Bash** está adicionada.
+- Após a instalação, crie uma pasta em sua área de trabalho
+- Dentro da pasta, clique com o botão direito e selecione **Git Bash Here**
+- Após abrir o terminal, copie o seguinte comando:
+   
 ```bash
-# clonar repositório
-git clone https://github.com/PhilTisoni/CodeRDIversity-API_Lista_Tarefas.git
+git clone https://github.com/PhilTisoni/CodeRDIversity.ListaTarefas.git
 ```
-Após clonar o projeto, abra o executável na pasta bin.
+Após clonar o projeto, execute em seu compilador de preferência.
 
 # Índice
 
